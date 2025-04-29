@@ -1,6 +1,11 @@
-import { CLOUDINARY_CLOUD_NAME, CLOUDINARY_UPLOAD_PRESET } from "@/constants";
-import { ResponseType } from "@/types";
+// THIRD PARTY
 import axios from "axios";
+
+// CONSTANTS
+import { CLOUDINARY_CLOUD_NAME, CLOUDINARY_UPLOAD_PRESET } from "@/constants";
+
+// TYPES
+import { ResponseType } from "@/types";
 
 export const CLOUDINARY_API_URL = `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/image/upload`;
 
@@ -46,6 +51,7 @@ export const uploadFileToCloudinary = async (
     };
   }
 };
+
 export const getProfileImage = (file: any) => {
   if (file && typeof file === "string") return file;
   if (file && typeof file === "object") return file.uri;

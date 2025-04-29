@@ -1,4 +1,4 @@
-// ########  FOLLOW THIS ORDER ONLY. #######
+// ######## IMPORTS ORDER #######
 // REACT, REACT-NATIVE
 // THIRD PARTY
 // CONTEXTS

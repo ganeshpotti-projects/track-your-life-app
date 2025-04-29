@@ -1,13 +1,17 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { AuthContextType, UserType } from "@/types";
+
+// THIRD PARTY
+import { auth, firestore } from "@/config/firebase";
 import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signInWithEmailAndPassword,
 } from "firebase/auth";
-import { auth, firestore } from "@/config/firebase";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { useRouter } from "expo-router";
+
+// TYPES
+import { AuthContextType, UserType } from "@/types";
 
 export const AuthContext = createContext<AuthContextType | null>(null);
 

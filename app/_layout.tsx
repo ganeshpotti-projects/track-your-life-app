@@ -1,5 +1,4 @@
 import React from "react";
-import { StyleSheet } from "react-native";
 
 // THIRD PARTY
 import { Stack } from "expo-router";

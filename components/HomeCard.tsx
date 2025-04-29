@@ -1,13 +1,25 @@
-import { ImageBackground, StyleSheet, Text, View } from "react-native";
 import React from "react";
-import Typo from "./Typo";
-import { scale, verticalScale } from "@/utils/styling";
-import { colors, spacingX, spacingY } from "@/constants/theme";
+import { ImageBackground, StyleSheet, View } from "react-native";
+
+// THIRD PARTY
 import * as Icons from "phosphor-react-native";
-import useFetchData from "@/hooks/useFetchData";
-import { WalletType } from "@/types";
-import { useAuth } from "@/contexts/authContext";
 import { orderBy, where } from "firebase/firestore";
+import { useAuth } from "@/contexts/authContext";
+
+// HOOKS
+import useFetchData from "@/hooks/useFetchData";
+
+// CONSTANTS
+import { colors, spacingX, spacingY } from "@/constants/theme";
+
+// COMPONENTS
+import Typo from "./Typo";
+
+// TYPES
+import { WalletType } from "@/types";
+
+// UTILS
+import { scale, verticalScale } from "@/utils/styling";
 
 const HomeCard = () => {
   const { user } = useAuth();

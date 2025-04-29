@@ -5,7 +5,7 @@ import { StyleSheet, TouchableOpacity, View } from "react-native";
 import Animated, { FadeIn, FadeInDown } from "react-native-reanimated";
 import { useRouter } from "expo-router";
 
-//CONSTANTS
+// CONSTANTS
 import { colors, spacingX, spacingY } from "@/constants/theme";
 
 // COMPONENTS

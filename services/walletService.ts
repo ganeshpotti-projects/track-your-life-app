@@ -1,5 +1,4 @@
-import { ResponseType, WalletType } from "@/types";
-import { uploadFileToCloudinary } from "./imageService";
+// THIRD PARTY
 import {
   collection,
   deleteDoc,
@@ -11,6 +10,12 @@ import {
   writeBatch,
 } from "firebase/firestore";
 import { firestore } from "@/config/firebase";
+
+// SERVICES
+import { uploadFileToCloudinary } from "./imageService";
+
+// TYPES
+import { ResponseType, WalletType } from "@/types";
 
 export const createOrUpdateWallet = async (
   walletData: Partial<WalletType>

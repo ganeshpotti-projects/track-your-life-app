@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, TextStyle } from "react-native";
+import { Text, TextStyle } from "react-native";
 
 // CONSTANTS
 import { colors } from "@/constants/theme";

@@ -1,18 +1,32 @@
-import { StyleSheet, TouchableOpacity, View } from "react-native";
 import React from "react";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
+
+// THIRD PARTY
+import * as Icons from "phosphor-react-native";
+import { FlatList } from "react-native";
+import { orderBy, where } from "firebase/firestore";
+import { useRouter } from "expo-router";
+
+// CONTEXTS
+import { useAuth } from "@/contexts/authContext";
+
+// HOOKS
+import useFetchData from "@/hooks/useFetchData";
+
+// CONSTANTS
+import { colors, radius, spacingX, spacingY } from "@/constants/theme";
+
+// COMPONENTS
+import Loading from "@/components/Loading";
 import ScreenWrapper from "@/components/ScreenWrapper";
 import Typo from "@/components/Typo";
-import { colors, radius, spacingX, spacingY } from "@/constants/theme";
-import { verticalScale } from "@/utils/styling";
-import * as Icons from "phosphor-react-native";
-import { useRouter } from "expo-router";
-import { useAuth } from "@/contexts/authContext";
-import useFetchData from "@/hooks/useFetchData";
-import { WalletType } from "@/types";
-import { orderBy, where } from "firebase/firestore";
-import Loading from "@/components/Loading";
-import { FlatList } from "react-native";
 import WalletListItem from "@/components/WalletListItem";
+
+// UTILS
+import { verticalScale } from "@/utils/styling";
+
+// TYPES
+import { WalletType } from "@/types";
 
 const Wallet = () => {
   const router = useRouter();

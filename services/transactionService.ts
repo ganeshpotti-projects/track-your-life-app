@@ -1,5 +1,4 @@
-import { firestore } from "@/config/firebase";
-import { ResponseType, TransactionType, WalletType } from "@/types";
+// THIRD PARTY
 import {
   collection,
   deleteDoc,
@@ -13,11 +12,21 @@ import {
   updateDoc,
   where,
 } from "firebase/firestore";
-import { uploadFileToCloudinary } from "./imageService";
+import { firestore } from "@/config/firebase";
+
+// SERVICES
 import { createOrUpdateWallet } from "./walletService";
+import { uploadFileToCloudinary } from "./imageService";
+
+// CONSTANTS
+import { colors } from "@/constants/theme";
+
+// TYPES
+import { ResponseType, TransactionType, WalletType } from "@/types";
+
+// UTILS
 import { getLast12Months, getLast7Days, getYearsRange } from "@/utils/common";
 import { scale } from "@/utils/styling";
-import { colors } from "@/constants/theme";
 
 export const createOrUpdateTransaction = async (
   transactionData: Partial<TransactionType>

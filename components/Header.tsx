@@ -1,8 +1,11 @@
-import { StyleSheet, Text, View } from "react-native";
 import React from "react";
+import { StyleSheet, View } from "react-native";
+
+// COMPONENTS
 import Typo from "./Typo";
+
+// TYPES
 import { HeaderProps } from "@/types";
-import BackButton from "./BackButton";
 
 const Header = ({ title = "", leftIcon, style }: HeaderProps) => {
   return (

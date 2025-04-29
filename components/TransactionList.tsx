@@ -1,19 +1,29 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
-import {
+import { Pressable, StyleSheet, TouchableOpacity, View } from "react-native";
+
+// THIRD PARTY
+import Animated, { FadeInDown } from "react-native-reanimated";
+import { FlashList } from "@shopify/flash-list";
+import { Timestamp } from "firebase/firestore";
+import { useRouter } from "expo-router";
+
+// CONSTANTS
+import { colors, radius, spacingX, spacingY } from "@/constants/theme";
+import { expenseCategories, incomeCategory } from "@/constants/data";
+
+// COMPONENTS
+import Typo from "./Typo";
+import Loading from "./Loading";
+
+// TYPES
+import type {
   TransactionItemProps,
   TransactionListType,
   TransactionType,
 } from "@/types";
-import { colors, radius, spacingX, spacingY } from "@/constants/theme";
+
+// UTILS
 import { verticalScale } from "@/utils/styling";
-import Typo from "./Typo";
-import { FlashList } from "@shopify/flash-list";
-import Loading from "./Loading";
-import { expenseCategories, incomeCategory } from "@/constants/data";
-import Animated, { FadeInDown } from "react-native-reanimated";
-import { Timestamp } from "firebase/firestore";
-import { useRouter } from "expo-router";
 
 const TransactionList = ({
   data,
@@ -111,13 +121,23 @@ const TransactionItem = ({
         </View>
         <View style={styles.categoryDes}>
           <Typo size={17}>{category.label}</Typo>
-          <Typo
-            size={12}
-            color={colors.neutral400}
-            textProps={{ numberOfLines: 1 }}
-          >
-            {item.description}
-          </Typo>
+          {item.description ? (
+            <Typo
+              size={12}
+              color={colors.neutral400}
+              textProps={{ numberOfLines: 1 }}
+            >
+              {item.description}
+            </Typo>
+          ) : (
+            <Typo
+              size={12}
+              color={colors.neutral400}
+              textProps={{ numberOfLines: 1 }}
+            >
+              Add Description 💬
+            </Typo>
+          )}
         </View>
         <View style={styles.amountData}>
           <Typo

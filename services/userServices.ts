@@ -1,7 +1,12 @@
-import { firestore } from "@/config/firebase";
-import { ResponseType, UserDataType } from "@/types";
+// THIRD PARTY
 import { doc, updateDoc } from "firebase/firestore";
+import { firestore } from "@/config/firebase";
+
+// SERVICES
 import { uploadFileToCloudinary } from "./imageService";
+
+// TYPES
+import { ResponseType, UserDataType } from "@/types";
 
 export const updateUser = async (
   uid: string,

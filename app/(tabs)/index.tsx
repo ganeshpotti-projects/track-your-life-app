@@ -1,5 +1,11 @@
 import React from "react";
-import { ScrollView, StyleSheet, TouchableOpacity, View } from "react-native";
+import {
+  Alert,
+  ScrollView,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from "react-native";
 
 // THIRD PARTY
 import * as Icons from "phosphor-react-native";
@@ -26,11 +32,20 @@ import Typo from "@/components/Typo";
 import { verticalScale } from "@/utils/styling";
 
 // TYPES
-import { TransactionType } from "@/types";
+import { TransactionType, WalletType } from "@/types";
 
 const Home = () => {
   const { user } = useAuth();
   const router = useRouter();
+
+  const {
+    data: wallets,
+    loading: walletsLoading,
+    error: walletError,
+  } = useFetchData<WalletType>("wallets", [
+    where("uid", "==", user?.uid),
+    orderBy("created", "desc"),
+  ]);
 
   const constraints = [
     where("uid", "==", user?.uid),
@@ -44,6 +59,25 @@ const Home = () => {
     // check
     error,
   } = useFetchData<TransactionType>("transactions", constraints);
+
+  const showCreateAlert = () => {
+    if (wallets.length === 0) {
+      Alert.alert("Confirm", "Want to create a wallet?", [
+        {
+          text: "Cancel",
+          onPress: () => console.log("cancel creation"),
+          style: "cancel",
+        },
+        {
+          text: "Create Wallet",
+          onPress: () => router.push("/(modals)/walletModal"),
+          style: "default",
+        },
+      ]);
+    } else {
+      router.push("/(modals)/transactionModal");
+    }
+  };
 
   return (
     <ScreenWrapper>
@@ -89,10 +123,7 @@ const Home = () => {
         </ScrollView>
 
         {/* create transaction button */}
-        <Button
-          style={styles.floatingButton}
-          onPress={() => router.push("/(modals)/transactionModal")}
-        >
+        <Button style={styles.floatingButton} onPress={showCreateAlert}>
           <Icons.Plus
             color={colors.black}
             weight="bold"

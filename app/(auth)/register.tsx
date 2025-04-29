@@ -8,7 +8,7 @@ import { useRouter } from "expo-router";
 // CONTEXTS
 import { useAuth } from "@/contexts/authContext";
 
-//CONSTANTS
+// CONSTANTS
 import { colors, spacingX, spacingY } from "@/constants/theme";
 
 // COMPONENTS
@@ -18,7 +18,7 @@ import Input from "@/components/Input";
 import ScreenWrapper from "@/components/ScreenWrapper";
 import Typo from "@/components/Typo";
 
-//UTILS
+// UTILS
 import { verticalScale } from "@/utils/styling";
 
 const Register = () => {

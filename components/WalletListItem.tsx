@@ -1,13 +1,23 @@
-import { StyleSheet, TouchableOpacity, View } from "react-native";
 import React from "react";
-import { WalletType } from "@/types";
-import { router, Router } from "expo-router";
-import { verticalScale } from "@/utils/styling";
-import { colors, radius, spacingX } from "@/constants/theme";
-import { Image } from "expo-image";
-import Typo from "./Typo";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
+
+// THIRD PARTY
 import * as Icons from "phosphor-react-native";
 import Animated, { FadeInDown } from "react-native-reanimated";
+import { Image } from "expo-image";
+import { router, Router } from "expo-router";
+
+// CONSTANTS
+import { colors, radius, spacingX } from "@/constants/theme";
+
+// COMPONENTS
+import Typo from "./Typo";
+
+// TYPES
+import { WalletType } from "@/types";
+
+// UTILS
+import { verticalScale } from "@/utils/styling";
 
 const WalletListItem = ({
   item,

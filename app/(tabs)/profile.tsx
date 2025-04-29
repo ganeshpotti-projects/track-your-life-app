@@ -1,26 +1,33 @@
-import {
-  Alert,
-  StyleSheet,
-  Text,
-  Touchable,
-  TouchableOpacity,
-  View,
-} from "react-native";
 import React from "react";
-import ScreenWrapper from "@/components/ScreenWrapper";
-import Typo from "@/components/Typo";
-import { colors, radius, spacingX, spacingY } from "@/constants/theme";
-import { verticalScale } from "@/utils/styling";
-import Header from "@/components/Header";
-import { useAuth } from "@/contexts/authContext";
-import { Image } from "expo-image";
-import { getProfileImage } from "@/services/imageService";
-import { accountOptionType } from "@/types";
+import { Alert, StyleSheet, TouchableOpacity, View } from "react-native";
+
+// THIRD PARTY
 import * as Icons from "phosphor-react-native";
 import Animated, { FadeInDown } from "react-native-reanimated";
-import { signOut } from "firebase/auth";
 import { auth } from "@/config/firebase";
+import { Image } from "expo-image";
+import { signOut } from "firebase/auth";
 import { useRouter } from "expo-router";
+
+// CONTEXTS
+import { useAuth } from "@/contexts/authContext";
+
+// SERVICES
+import { getProfileImage } from "@/services/imageService";
+
+// CONSTANTS
+import { colors, radius, spacingX, spacingY } from "@/constants/theme";
+
+// COMPONENTS
+import Header from "@/components/Header";
+import ScreenWrapper from "@/components/ScreenWrapper";
+import Typo from "@/components/Typo";
+
+//TYPES
+import { accountOptionType } from "@/types";
+
+// UTILS
+import { verticalScale } from "@/utils/styling";
 
 const Profile = () => {
   const { user } = useAuth();
@@ -35,7 +42,7 @@ const Profile = () => {
     {
       title: "Settings",
       icon: <Icons.GearSix size={26} weight="fill" color={colors.white} />,
-      // routeName: "/(modals)/profileModal",
+      // routeName: "/(screens)/settingsScreen",
       bgColor: "#059669",
     },
     {

@@ -1,3 +1,4 @@
+// UTILS
 import { scale, verticalScale } from "@/utils/styling";
 
 export const colors = {

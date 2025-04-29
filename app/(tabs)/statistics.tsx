@@ -1,20 +1,31 @@
-import { Alert, ScrollView, StyleSheet, Text, View } from "react-native";
 import React, { useEffect, useState } from "react";
-import ScreenWrapper from "@/components/ScreenWrapper";
-import Typo from "@/components/Typo";
-import { colors, radius, spacingX, spacingY } from "@/constants/theme";
-import { scale, verticalScale } from "@/utils/styling";
-import Header from "@/components/Header";
-import SegmentedControl from "@react-native-segmented-control/segmented-control";
+import { Alert, ScrollView, StyleSheet, View } from "react-native";
+
+// THIRD PARTY
 import { BarChart } from "react-native-gifted-charts";
-import Loading from "@/components/Loading";
+import SegmentedControl from "@react-native-segmented-control/segmented-control";
+
+// CONTEXTS
 import { useAuth } from "@/contexts/authContext";
+
+// SERVICES
 import {
   fecthMonthlyStats,
   fetchWeeklyStats,
   fetchYearlyStats,
 } from "@/services/transactionService";
+
+// CONSTANTS
+import { colors, radius, spacingX, spacingY } from "@/constants/theme";
+
+// COMPONENTS
+import Header from "@/components/Header";
+import Loading from "@/components/Loading";
+import ScreenWrapper from "@/components/ScreenWrapper";
 import TransactionList from "@/components/TransactionList";
+
+// UTILS
+import { scale, verticalScale } from "@/utils/styling";
 
 const statistics = () => {
   const { user } = useAuth();
@@ -46,6 +57,7 @@ const statistics = () => {
       Alert.alert("Error: ", res.msg);
     }
   };
+
   const getMonthlyStats = async () => {
     setChartLoading(true);
     let res = await fecthMonthlyStats(user?.uid as string);
@@ -57,6 +69,7 @@ const statistics = () => {
       Alert.alert("Error: ", res.msg);
     }
   };
+
   const getYearlyStats = async () => {
     setChartLoading(true);
     let res = await fetchYearlyStats(user?.uid as string);

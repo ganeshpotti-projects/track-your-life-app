@@ -1,10 +1,14 @@
 import { View, Platform, TouchableOpacity, StyleSheet } from "react-native";
-import { useLinkBuilder, useTheme } from "@react-navigation/native";
-import { Text, PlatformPressable } from "@react-navigation/elements";
-import { BottomTabBarProps } from "@react-navigation/bottom-tabs";
-import { colors, spacingY } from "@/constants/theme";
-import { verticalScale } from "@/utils/styling";
+
+// THIRD PARTY
 import * as Icons from "phosphor-react-native";
+import { BottomTabBarProps } from "@react-navigation/bottom-tabs";
+
+// CONSTANTS
+import { colors, spacingY } from "@/constants/theme";
+
+// UTILS
+import { verticalScale } from "@/utils/styling";
 
 export default function CustomTabs({
   state,

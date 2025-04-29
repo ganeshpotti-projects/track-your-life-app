@@ -1,13 +1,25 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
-import { ImageUploadProps } from "@/types";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
+
+// THIRD PARTY
 import * as Icons from "phosphor-react-native";
-import { colors, radius } from "@/constants/theme";
-import Typo from "./Typo";
-import { scale, verticalScale } from "@/utils/styling";
-import { Image } from "expo-image";
-import { getFilePath } from "@/services/imageService";
 import * as ImagePicker from "expo-image-picker";
+import { Image } from "expo-image";
+
+// SERVICES
+import { getFilePath } from "@/services/imageService";
+
+// CONSTANTS
+import { colors, radius } from "@/constants/theme";
+
+// COMPONENTS
+import Typo from "./Typo";
+
+// TYPES
+import { ImageUploadProps } from "@/types";
+
+// UTILS
+import { scale, verticalScale } from "@/utils/styling";
 
 const ImageUpload = ({
   file = null,
